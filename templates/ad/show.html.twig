@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ad.title}}
+    {{ad.type}}
 {% endblock %}
 
 {% block body %}
 
 <div class="ad-title" style="background-image: url({{ ad.coverImage }})">
     <div class="container">
-        <h1>{{ad.title}}</h1>
+        <h1>{{ad.type}}</h1>
         <p>{{ad.introduction}}</p>
         <p class="h2">
-            <strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price}}&euro;</strong> par nuit
+            <strong>{{ad.name}}, </strong><strong>{{ad.age}} ans</strong>
         </p>
         <a href="#" class="btn btn-primary">Réserver !</a>
     </div>
@@ -31,7 +31,7 @@
                             <div class="carousel-item {% if loop.first %}active{% endif %}">
                                 <img src="{{ image.url }}" class="d-block w-100" alt="Firstslide">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>{{ ad.title }}</h5>
+                                    <h5>{{ ad.type }}</h5>
                                     <p>{{ image.caption }}</p>
                                 </div>
                             </div>

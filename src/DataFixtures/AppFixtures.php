@@ -9,6 +9,7 @@ use App\Entity\Image;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Entity\Role;
 
 class AppFixtures extends Fixture
 {
@@ -21,6 +22,22 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr-FR');
+
+        // Nous gérons les roles
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
+
+        $adminUser = new User();
+        $adminUser->setFirstName('francis')
+                  ->setLastName('Tran')
+                  ->setEmail('francis@hotmail.com')
+                  ->setPassword($this->encoder->encodePassword($adminUser, 'password'))
+                  ->setPicture('https://avatar.io/twitter/LiiorC')
+                  ->setIntroduction($faker->sentence())
+                  ->setDescription('<p>' . join('</p><p>', $faker->paragraphs(3)) . '</p>')
+                  ->addUserRole($adminRole);
+        $manager->persist($adminUser);
 
         // Nous gérons les utilisateurs
         $users = [];

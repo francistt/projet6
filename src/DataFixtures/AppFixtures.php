@@ -44,16 +44,17 @@ class AppFixtures extends Fixture
         $genres = ['male', 'female'];
 
         for($i = 1; $i <= 10; $i++) {
-            $user = new User();
+            $user      = new User();
 
-            $genre = $faker->randomElement($genres);
+            $genre     = $faker->randomElement($genres);
 
-            $picture = 'https://randomuser.me/api/portraits/';
+            $picture   = 'https://randomuser.me/api/portraits/';
             $pictureId = $faker->numberBetween(1, 99) . '.jpg';
 
-            $picture .= ($genre == 'male' ? 'men/' : 'women/') . $pictureId;
+            $picture  .= ($genre == 'male' ? 'men/' : 'women/') . $pictureId;
 
-            $password = $this->encoder->encodePassword($user, 'password');
+            $password  = $this->encoder->encodePassword($user, 'password');
+            $phone     = $faker->phoneNumber;
             
             $user->setFirstName($faker->firstname($genre))
                  ->setLastName($faker->lastname)
@@ -61,7 +62,8 @@ class AppFixtures extends Fixture
                  ->setIntroduction($faker->sentence())
                  ->setDescription('<p>' . join('</p><p>', $faker->paragraphs(3)) . '</p>')
                  ->setPassword($password)
-                 ->setPicture($picture);
+                 ->setPicture($picture)
+                 ->setPhone($phone);
 
             $manager->persist($user);
             $users[] = $user;

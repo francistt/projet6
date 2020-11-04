@@ -13,6 +13,12 @@ div.ad-title h1, div.ad-title p {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
 
+div.ad-title .btn {
+    margin-top: 2em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
 div.carousel-caption {
     text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 }
@@ -26,9 +32,42 @@ div.carousel-caption {
 .avatar-medium {
     max-width: 64px;
     max-height: 64px;
+    border-radius: 50%;
 }
 
 .avatar-mini {
     max-width: 24px;
     max-height: 24px;
+    border-radius: 50%;
+}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: rgba(217,83,79,0.25) !important;
+}
+
+span.rating i {
+    color: goldenrod;
+}
+
+.alert a {
+    text-decoration: none;
+}
+
+.alert .btn {
+    color: white;
+}
+
+@media all and (max-width: 1024px) {
+    #mainTitle
+    {
+        font-size: 2.7em;
+    }
+    h1, .h1 {
+        font-size: 2rem;
+    }
+    .avatar {
+        max-width: 64px;
+        max-height: 64px;
+        border-radius: 50%;
+    }
 }

@@ -87,6 +87,11 @@ class User implements UserInterface
      */
     private $userRoles;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phone;
+
     public function getFullName() {
         return "{$this->firstName} {$this->lastName}";
     }
@@ -287,6 +292,18 @@ class User implements UserInterface
             $this->userRoles->removeElement($userRole);
             $userRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

@@ -5,8 +5,8 @@
 {% block body %}
 
     <div class="containter">
-        <div class="row align-items-center">
-            <div class="col-3 text-center">
+        <div class="row align-items-center mb-4">
+            <div class="col-3 text-center mt-3">
                 <img src="{{user.picture}}" class="avatar mb-3" alt="Avatar de {{user.fullName}}">
                 <br>
                 <span class="badge badge-primary">{{user.ads | length}} annonces</span>
@@ -37,7 +37,7 @@
         {% else %}
             <div class="alert alert-warning">
                 <p>
-                    <strong>{{user.fullName}}</strong> n'a pas encore d'annonce sur le site
+                    <strong>{{user.firstName}}</strong> n'a pas encore d'annonce sur le site
                 </p>
             </div>
         {% endif %}
